@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input id="queue-input" type="text">
+<p id="queue-cont">队列内容：apple<-pear</p>
+<button id="in-btn">入队</button>
+<button id="out-btn">出队</button>
+<button id="font-btn">打印队头元素内容</button>
+<button id="empty-btn">判断队列是否为空</button>
+
+<script>
+
+    var stack = ["apple", "pear"];
+    var stack_input = document.getElementById('queue-input');
+    var stack_output = document.getElementById('queue-cont');
+    var btn = document.getElementsByTagName('button');
+
+    function pushStack() {
+        stack.unshift(stack_input.value);
+        stack_output.innerHTML = '栈内容：' + stack.join('<-');
+    }
+    btn[0].addEventListener('click',pushStack);
+
+    function popStack() {
+        stack.shift();
+        stack_output.innerHTML = '栈内容：' + stack.join('<-');
+    }
+    btn[1].addEventListener('click',popStack);
+
+    function printHead() {
+        stack_output.innerHTML = '栈顶元素：' + stack[0];
+    }
+    btn[2].addEventListener('click',printHead);
+
+    function isEmpty() {
+        if (stack[0] != undefined){
+            stack_output.innerHTML = '非空';
+        }else {
+            stack_output.innerHTML = '空';
+        }
+    }
+    btn[3].addEventListener('click',isEmpty);
+
+</script>
+</body>
+</html>
