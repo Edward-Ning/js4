@@ -5,46 +5,46 @@
     <title>Title</title>
 </head>
 <body>
-
-<input id="stack-input" type="text">
-<p id="stack-cont">栈内容：apple->pear</p>
-<button id="push-btn">进栈</button>
-<button id="pop-btn">退栈</button>
-<button id="font-btn">打印栈顶元素内容</button>
-<button id="empty-btn">判断栈是否为空</button>
+<input id="queue-input" type="text">
+<p id="queue-cont">队列内容：apple<-pear</p>
+<button id="in-btn">入队</button>
+<button id="out-btn">出队</button>
+<button id="font-btn">打印队头元素内容</button>
+<button id="empty-btn">判断队列是否为空</button>
 
 <script>
 
-    var stack = ["apple", "pear"];
-    var stack_input = document.getElementById('stack-input');
-    var stack_output = document.getElementById('stack-cont');
+    var queue = ["apple", "pear"];
+    var queue_input = document.getElementById('queue-input');
     var btn = document.getElementsByTagName('button');
-    
-    function pushStack() {
-        stack.push(stack_input.value);
-        stack_output.innerHTML = '栈内容：' + stack.join('->');
-    }
-    btn[0].addEventListener('click',pushStack);
+    var queue_output = document.getElementById('queue-cont');
 
-    function popStack() {
-        stack.pop();
-        stack_output.innerHTML = '栈内容：' + stack.join('->');
+    function pushQueue() {
+        queue.push(queue_input.value);
+        queue_output.innerHTML = '队列内容：' + queue.join('<-');
     }
-    btn[1].addEventListener('click',popStack);
+    btn[0].addEventListener('click',pushQueue);
+
+    function popQueue() {
+        queue.shift(queue);
+        queue_output.innerHTML = '队列内容：' + queue.join('<-');
+    }
+    btn[1].addEventListener('click',popQueue);
 
     function printHead() {
-        stack_output.innerHTML = '栈顶元素：' + stack[stack.length-1];
+        queue_output.innerHTML = '对头元素：' + queue[0];
     }
     btn[2].addEventListener('click',printHead);
 
     function isEmpty() {
-        if (stack[0] != undefined){
-            stack_output.innerHTML = '非空';
+        if (queue[0] != undefined){
+            queue_output.innerHTML = '非空';
         }else {
-            stack_output.innerHTML = '空';
+            queue_output.innerHTML = '空';
         }
     }
     btn[3].addEventListener('click',isEmpty);
+
 
 </script>
 </body>
