@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    var arrNum = [43, 54, 4, -4, 84, 100, 58, 27, 140];
+    var arrNumUp = arrNum;
+    var arrNumLow = arrNum;
+    arrNumUp.sort(function (a, b) {
+       return a - b;
+    });
+    console.log(arrNumUp);
+
+    arrNumLow.sort(function (a,b) {
+        return b - a;
+    });
+    console.log(arrNumLow);
+
+    var arrStr = ['apple', 'dog', 'cat', 'car', 'zoo', 'orange', 'airplane'];
+    var arrStrUp = arrStr;
+    var arrStrLow = arrStr;
+
+    arrStrUp.sort(function (a,b) {
+        var stra = a.toUpperCase();
+        var strb = b.toUpperCase();
+        if (stra > strb){
+            return 1;
+        }
+        if (strb > stra){
+            return -1;
+        }
+        return 0;
+    });
+    console.log(arrStrUp);
+
+    arrStrLow.sort(function (a,b) {
+        var stra = a.toLowerCase();
+        var strb = b.toLowerCase();
+        if (stra < strb){
+            return 1;
+        }
+        if (strb > stra){
+            return -1;
+        }
+        return 0;
+    });
+    console.log(arrStrLow);
+
+    var arr2 = [[10, 14], [16, 60], [7, 44], [26, 35], [22, 63]];
+    var arr2Up = arr2;
+
+    arr2Up.sort(function (a,b) {
+        var i;
+        if (a[1] > b[1]){
+            return -1;
+        }
+        if (a[1] < b[1]){
+            return 1;
+        }
+        return 0;
+    });
+    console.log(arr2Up);
+
+    var arrOj = [
+        {
+            id: 1,
+            name: 'candy',
+            value: 40
+        }, {
+            id: 2,
+            name: 'Simon',
+            value: 50
+        }, {
+            id: 3,
+            name: 'Tony',
+            value: 45
+        }, {
+            id: 4,
+            name: 'Annie',
+            value: 60
+        }
+    ];
+    var arrOjUp = arrOj;
+
+    arrOjUp.sort(function (a,b) {
+        var valuea = a.value;
+        var valueb = b.value;
+        
+        if (valuea > valueb){
+            return 1;
+        }
+        if (valueb > valuea){
+            return -1;
+        }
+        return 0 ;
+    });
+    console.log(arrOjUp);
+
+
+</script>
+</body>
+</html>
